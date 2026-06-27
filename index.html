@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DriveX | Premium Luxury Car Dealership</title>
+<meta name="description" content="DriveX is a premium luxury car dealership offering luxury cars, sports cars, SUVs, electric vehicles, sedans and certified used cars. Book your test drive today.">
+<meta name="keywords" content="luxury cars, car dealership, buy cars, test drive, sports cars, SUV, electric cars, DriveX">
+
+<!-- Favicon -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%22%23D4AF37%22>D</text></svg>">
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- Bootstrap 5 -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<!-- AOS Animation -->
+<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+<!-- Custom CSS -->
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ========== LOADING SCREEN ========== -->
+<div id="loader">
+  <div class="loader-inner">
+    <span class="loader-logo">Drive<span class="accent">X</span></span>
+    <div class="loader-bar"><div class="loader-bar-fill"></div></div>
+  </div>
+</div>
+
+<!-- ========== CUSTOM CURSOR ========== -->
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-outline" id="cursorOutline"></div>
+
+<!-- ========== SCROLL PROGRESS BAR ========== -->
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- ========== TOAST CONTAINER ========== -->
+<div class="toast-container position-fixed bottom-0 end-0 p-3" id="toastContainer" style="z-index:2000"></div>
+
+<!-- ========== NAVBAR ========== -->
+<nav class="navbar navbar-expand-lg fixed-top" id="mainNavbar">
+  <div class="container">
+    <a class="navbar-brand" href="#home">Drive<span class="accent">X</span></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#cars">Cars</a></li>
+        <li class="nav-item"><a class="nav-link" href="#deals">Deals</a></li>
+        <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
+        <li class="nav-item"><a class="nav-link" href="#reviews">Reviews</a></li>
+        <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+        <li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
+        <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+      </ul>
+      <div class="d-flex align-items-center gap-3 nav-icons">
+        <button class="icon-btn" id="searchToggle" title="Search cars"><i class="fa-solid fa-magnifying-glass"></i></button>
+        <button class="icon-btn" id="wishlistToggle" title="Wishlist"><i class="fa-solid fa-heart"></i><span class="badge-count" id="wishlistCount">0</span></button>
+        <button class="icon-btn" id="cartToggle" title="Inquiry list"><i class="fa-solid fa-bag-shopping"></i><span class="badge-count" id="cartCount">0</span></button>
+        <button class="icon-btn" id="themeToggle" title="Toggle theme"><i class="fa-solid fa-moon"></i></button>
+        <a href="#booking" class="btn btn-gold-sm">Book Test Drive</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ========== SEARCH OVERLAY ========== -->
+<div class="search-overlay" id="searchOverlay">
+  <button class="search-close" id="searchClose"><i class="fa-solid fa-xmark"></i></button>
+  <div class="search-box">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <input type="text" id="searchInput" placeholder="Search by model, e.g. BMW, Tesla, Range Rover...">
+  </div>
+  <div id="searchResults" class="search-results"></div>
+</div>
+
+<!-- ========== WISHLIST DRAWER ========== -->
+<div class="side-drawer" id="wishlistDrawer">
+  <div class="drawer-head">
+    <h5><i class="fa-solid fa-heart accent"></i> Your Wishlist</h5>
+    <button class="drawer-close" data-close-drawer><i class="fa-solid fa-xmark"></i></button>
+  </div>
+  <div class="drawer-body" id="wishlistItems"><p class="text-muted">No vehicles saved yet.</p></div>
+</div>
+
+<!-- ========== INQUIRY CART DRAWER ========== -->
+<div class="side-drawer" id="cartDrawer">
+  <div class="drawer-head">
+    <h5><i class="fa-solid fa-bag-shopping accent"></i> Inquiry List</h5>
+    <button class="drawer-close" data-close-drawer><i class="fa-solid fa-xmark"></i></button>
+  </div>
+  <div class="drawer-body" id="cartItems"><p class="text-muted">No vehicles added for inquiry.</p></div>
+  <div class="drawer-footer" id="cartFooter" style="display:none">
+    <a href="#booking" class="btn btn-gold w-100" data-close-drawer>Send Inquiry</a>
+  </div>
+</div>
+<div class="drawer-backdrop" id="drawerBackdrop"></div>
+
+<!-- ========== HERO SECTION ========== -->
+<header id="home" class="hero">
+  <div class="hero-bg" style="background-image:url('https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=1920&q=80');"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-particles" id="heroParticles"></div>
+  <div class="container hero-content">
+    <p class="eyebrow" data-aos="fade-down" data-aos-delay="100">DriveX Luxury Automotive Group</p>
+    <h1 class="hero-title" data-aos="fade-up" data-aos-delay="200">
+      Drive Your Dream.<br><span class="typing" id="typingText"></span>
+    </h1>
+    <p class="hero-sub" data-aos="fade-up" data-aos-delay="300">
+      Curated luxury, sports, electric and premium pre-owned vehicles — delivered with a showroom experience worthy of the keys you're about to hold.
+    </p>
+    <div class="hero-buttons" data-aos="fade-up" data-aos-delay="400">
+      <a href="#cars" class="btn btn-gold ripple">Explore Cars <i class="fa-solid fa-arrow-right ms-2"></i></a>
+      <a href="#booking" class="btn btn-outline-light ripple">Book Test Drive</a>
+    </div>
+    <div class="hero-stats" data-aos="fade-up" data-aos-delay="500">
+      <div><h3 data-count="10">0</h3><span>Years Experience</span></div>
+      <div><h3 data-count="5000">0</h3><span>Cars Sold</span></div>
+      <div><h3 data-count="100">0</h3><span>Premium Models</span></div>
+    </div>
+  </div>
+  <div class="floating-car" id="floatingCar">
+    <img src="https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&w=900&q=80" alt="Floating luxury car">
+  </div>
+  <a href="#about" class="scroll-down-indicator"><i class="fa-solid fa-chevron-down"></i></a>
+</header>
+
+<!-- ========== ABOUT SECTION ========== -->
+<section id="about" class="section about-section">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6" data-aos="fade-right">
+        <div class="about-img-wrap">
+          <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=900&q=80" class="img-fluid rounded-4 main-about-img" alt="DriveX luxury showroom">
+          <div class="about-float-card">
+            <i class="fa-solid fa-award"></i>
+            <div><h4>#1</h4><p>Luxury Dealer 2025</p></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6" data-aos="fade-left">
+        <p class="section-eyebrow">About DriveX</p>
+        <h2 class="section-title">A Showroom Built On Passion For The Extraordinary</h2>
+        <p class="section-text">
+          For over a decade, DriveX has redefined what it means to buy a car. We are not a lot full of vehicles —
+          we are a curated gallery of automotive excellence, hand-selected for collectors, executives and enthusiasts
+          who refuse to compromise. Every vehicle that enters our showroom is inspected, certified and detailed to
+          a standard most dealers reserve for showpieces only.
+        </p>
+        <div class="row gy-3 mt-3">
+          <div class="col-md-6">
+            <div class="mini-card"><i class="fa-solid fa-bullseye"></i><div><h5>Our Mission</h5><p>Deliver world-class vehicles with honesty, transparency and a personal touch.</p></div></div>
+          </div>
+          <div class="col-md-6">
+            <div class="mini-card"><i class="fa-solid fa-eye"></i><div><h5>Our Vision</h5><p>To be the most trusted name in luxury automotive retail worldwide.</p></div></div>
+          </div>
+          <div class="col-md-6">
+            <div class="mini-card"><i class="fa-solid fa-medal"></i><div><h5>Experience</h5><p>10+ years sourcing, certifying and delivering premium vehicles.</p></div></div>
+          </div>
+          <div class="col-md-6">
+            <div class="mini-card"><i class="fa-solid fa-thumbs-up"></i><div><h5>Why Choose Us</h5><p>Concierge service, transparent pricing, and lifetime support.</p></div></div>
+          </div>
+        </div>
+        <a href="#cars" class="btn btn-dark-gold mt-4 ripple">Discover Our Collection</a>
+      </div>
+    </div>
+
+    <div class="stats-bar" data-aos="fade-up">
+      <div class="stat-box"><i class="fa-solid fa-calendar-check"></i><h3 data-count="10">0</h3><p>+ Years Experience</p></div>
+      <div class="stat-box"><i class="fa-solid fa-car"></i><h3 data-count="5000">0</h3><p>+ Cars Sold</p></div>
+      <div class="stat-box"><i class="fa-solid fa-star"></i><h3 data-count="100">0</h3><p>+ Premium Models</p></div>
+      <div class="stat-box"><i class="fa-solid fa-headset"></i><h3>24/7</h3><p>Customer Support</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FEATURED CARS SECTION ========== -->
+<section id="cars" class="section cars-section">
+  <div class="container">
+    <p class="section-eyebrow text-center" data-aos="fade-up">Our Collection</p>
+    <h2 class="section-title text-center" data-aos="fade-up">Featured Vehicles</h2>
+    <p class="section-text text-center mx-auto" data-aos="fade-up" style="max-width:650px">
+      Browse our hand-picked inventory across every category — from track-bred supercars to family-ready SUVs.
+    </p>
+
+    <div class="filter-bar" data-aos="fade-up">
+      <button class="filter-btn active" data-filter="all">All Vehicles</button>
+      <button class="filter-btn" data-filter="luxury">🚗 Luxury</button>
+      <button class="filter-btn" data-filter="sports">🏎 Sports</button>
+      <button class="filter-btn" data-filter="suv">🚙 SUVs</button>
+      <button class="filter-btn" data-filter="electric">⚡ Electric</button>
+      <button class="filter-btn" data-filter="sedan">🚘 Sedans</button>
+      <button class="filter-btn" data-filter="used">🔥 Premium Used</button>
+    </div>
+
+    <div class="row g-4" id="carsGrid"></div>
+
+    <div class="text-center mt-3" id="noResults" style="display:none">
+      <p class="text-muted">No vehicles match your search. Try another keyword.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== BEST DEALS SECTION ========== -->
+<section id="deals" class="section deals-section">
+  <div class="container">
+    <p class="section-eyebrow text-center" data-aos="fade-up">Limited Time</p>
+    <h2 class="section-title text-center" data-aos="fade-up">This Month's Best Deals</h2>
+    <div class="row g-4" id="dealsGrid"></div>
+  </div>
+</section>
+
+<!-- ========== GALLERY SECTION ========== -->
+<section id="gallery" class="section gallery-section">
+  <div class="container">
+    <p class="section-eyebrow text-center" data-aos="fade-up">Inside DriveX</p>
+    <h2 class="section-title text-center" data-aos="fade-up">Showroom &amp; Lifestyle Gallery</h2>
+    <div class="gallery-grid" id="galleryGrid"></div>
+  </div>
+</section>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightboxClose"><i class="fa-solid fa-xmark"></i></button>
+  <img id="lightboxImg" src="" alt="Gallery preview">
+</div>
+
+<!-- ========== REVIEWS SECTION ========== -->
+<section id="reviews" class="section reviews-section">
+  <div class="container">
+    <p class="section-eyebrow text-center" data-aos="fade-up">Testimonials</p>
+    <h2 class="section-title text-center" data-aos="fade-up">What Our Clients Say</h2>
+    <div class="row g-4" id="reviewsGrid"></div>
+  </div>
+</section>
+
+<!-- ========== TEST DRIVE BOOKING SECTION ========== -->
+<section id="booking" class="section booking-section">
+  <div class="booking-bg" style="background-image:url('https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&w=1600&q=80')"></div>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8" data-aos="zoom-in">
+        <div class="booking-card glass">
+          <p class="section-eyebrow text-center">Schedule A Visit</p>
+          <h2 class="section-title text-center">Book Your Test Drive</h2>
+          <form id="bookingForm" class="row g-3 mt-3" novalidate>
+            <div class="col-md-6">
+              <label class="form-label">Full Name</label>
+              <input type="text" class="form-control" id="bName" required placeholder="John Carter">
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Email Address</label>
+              <input type="email" class="form-control" id="bEmail" required placeholder="john@email.com">
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Phone Number</label>
+              <input type="tel" class="form-control" id="bPhone" required placeholder="+1 555 000 1234">
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Preferred Car</label>
+              <select class="form-select" id="bCar" required>
+                <option value="" selected disabled>Select a vehicle</option>
+              </select>
+            </div>
+            <div class="col-md-4">
+              <label class="form-label">Preferred Date</label>
+              <input type="date" class="form-control" id="bDate" required>
+            </div>
+            <div class="col-md-4">
+              <label class="form-label">Preferred Time</label>
+              <input type="time" class="form-control" id="bTime" required>
+            </div>
+            <div class="col-md-4">
+              <label class="form-label">Showroom Location</label>
+              <select class="form-select" id="bLocation" required>
+                <option value="" selected disabled>Choose location</option>
+                <option>DriveX Downtown Showroom</option>
+                <option>DriveX Westside Gallery</option>
+                <option>DriveX Airport Boulevard</option>
+              </select>
+            </div>
+            <div class="col-12">
+              <label class="form-label">Special Request</label>
+              <textarea class="form-control" id="bMessage" rows="3" placeholder="Any specific requirements..."></textarea>
+            </div>
+            <div class="col-12 text-center mt-2">
+              <button type="submit" class="btn btn-gold ripple px-5">Book Test Drive <i class="fa-solid fa-key ms-2"></i></button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== TEAM SECTION ========== -->
+<section id="team" class="section team-section">
+  <div class="container">
+    <p class="section-eyebrow text-center" data-aos="fade-up">Meet The Experts</p>
+    <h2 class="section-title text-center" data-aos="fade-up">Our Dedicated Team</h2>
+    <div class="row g-4" id="teamGrid"></div>
+  </div>
+</section>
+
+<!-- ========== SERVICES SECTION ========== -->
+<section id="services" class="section services-section">
+  <div class="container">
+    <p class="section-eyebrow text-center" data-aos="fade-up">Beyond The Sale</p>
+    <h2 class="section-title text-center" data-aos="fade-up">Our Services</h2>
+    <div class="row g-4" id="servicesGrid"></div>
+  </div>
+</section>
+
+<!-- ========== FAQ SECTION ========== -->
+<section id="faq" class="section faq-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-5" data-aos="fade-right">
+        <p class="section-eyebrow">Need Help?</p>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <p class="section-text">Can't find the answer you're looking for? Our concierge team is available 24/7 to help.</p>
+        <a href="#contact" class="btn btn-dark-gold ripple">Contact Us</a>
+      </div>
+      <div class="col-lg-7" data-aos="fade-left">
+        <div class="accordion" id="faqAccordion"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CONTACT SECTION ========== -->
+<section id="contact" class="section contact-section">
+  <div class="container">
+    <p class="section-eyebrow text-center" data-aos="fade-up">Get In Touch</p>
+    <h2 class="section-title text-center" data-aos="fade-up">Visit Our Showroom</h2>
+    <div class="row g-4 mt-4">
+      <div class="col-lg-5" data-aos="fade-right">
+        <div class="contact-info-card">
+          <div class="contact-item"><i class="fa-solid fa-location-dot"></i><div><h5>Address</h5><p>1420 Luxury Mile, Beverly Hills, CA 90210</p></div></div>
+          <div class="contact-item"><i class="fa-solid fa-phone"></i><div><h5>Phone</h5><p>+1 (310) 555-0198</p></div></div>
+          <div class="contact-item"><i class="fa-solid fa-envelope"></i><div><h5>Email</h5><p>concierge@drivex.com</p></div></div>
+          <div class="contact-item"><i class="fa-solid fa-clock"></i><div><h5>Working Hours</h5><p>Mon - Sat: 9:00 AM - 8:00 PM<br>Sunday: 10:00 AM - 6:00 PM</p></div></div>
+          <div class="social-row">
+            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#"><i class="fa-brands fa-youtube"></i></a>
+            <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-7" data-aos="fade-left">
+        <div class="map-wrap">
+          <iframe src="https://www.google.com/maps?q=Beverly%20Hills%2C%20CA&output=embed" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="DriveX showroom location"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer class="footer">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-4">
+        <a class="navbar-brand" href="#home">Drive<span class="accent">X</span></a>
+        <p class="footer-text">DriveX is a premium automotive showroom delivering luxury, sports, electric and certified pre-owned vehicles with a concierge-level buying experience.</p>
+        <div class="social-row">
+          <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-4 col-6">
+        <h5>Quick Links</h5>
+        <ul class="footer-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#cars">Cars</a></li>
+          <li><a href="#booking">Book Test Drive</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-md-4 col-6">
+        <h5>Vehicle Categories</h5>
+        <ul class="footer-links">
+          <li><a href="#cars" data-cat-link="luxury">Luxury Cars</a></li>
+          <li><a href="#cars" data-cat-link="sports">Sports Cars</a></li>
+          <li><a href="#cars" data-cat-link="suv">SUVs</a></li>
+          <li><a href="#cars" data-cat-link="electric">Electric Cars</a></li>
+          <li><a href="#cars" data-cat-link="sedan">Sedans</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-md-4">
+        <h5>Newsletter</h5>
+        <p class="footer-text">Subscribe for new arrivals and exclusive offers.</p>
+        <form class="newsletter-form" id="newsletterForm">
+          <input type="email" placeholder="Your email address" required>
+          <button type="submit"><i class="fa-solid fa-paper-plane"></i></button>
+        </form>
+      </div>
+    </div>
+    <hr>
+    <div class="footer-bottom">
+      <p>&copy; <span id="year"></span> DriveX Luxury Motors. All Rights Reserved.</p>
+      <p>Crafted with <i class="fa-solid fa-heart accent"></i> for automotive excellence.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ========== SCROLL TO TOP ========== -->
+<button id="scrollTopBtn" title="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
+
+<!-- ========== CAR DETAILS MODAL ========== -->
+<div class="modal fade" id="carModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content" id="carModalContent"></div>
+  </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- AOS JS -->
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<!-- Custom JS -->
+<script src="script.js"></script>
+<script src='https://www.noupe.com/embed/019ee3a3a9547fefa2baa3adbe0e6ae91aa5.js'></script>
+</body>
+</html>
