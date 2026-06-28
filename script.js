@@ -12,11 +12,11 @@ document.addEventListener('DOMContentLoaded', () => {
     { id:2, name:"Mercedes-Benz C-Class", category:"luxury", year:2024, engine:"2.0L Turbo", mileage:"12 mi", price:58900, rating:4.7, img:"https://www.topgear.com/sites/default/files/2021/11/Mercedes_C300D_0000.jpg", badge:"Featured" },
     { id:3, name:"Audi A6", category:"luxury", year:2023, engine:"2.0L TFSI", mileage:"1,200 mi", price:55200, rating:4.6, img:"Screenshot 2026-06-28 160528.png", badge:"" },
     { id:4, name:"Porsche 911 Carrera", category:"sports", year:2024, engine:"3.0L Twin-Turbo", mileage:"3 mi", price:118900, rating:5.0, img:"https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=80", badge:"Track Ready" },
-    { id:5, name:"Range Rover Autobiography", category:"suv", year:2024, engine:"4.4L V8", mileage:"8 mi", price:121500, rating:4.9, img:"https://images.unsplash.com/photo-1581540222194-0def2dda95b8?auto=format&fit=crop&w=800&q=80", badge:"Luxury SUV" },
+    { id:5, name:"Range Rover Autobiography", category:"suv", year:2024, engine:"4.4L V8", mileage:"8 mi", price:121500, rating:4.9, img:"Screenshot 2026-06-28 161515.png", badge:"Luxury SUV" },
     { id:6, name:"Tesla Model S Plaid", category:"electric", year:2024, engine:"Tri-Motor Electric", mileage:"15 mi", price:89900, rating:4.8, img:"https://images.unsplash.com/photo-1560958089-b8a1929cea89?auto=format&fit=crop&w=800&q=80", badge:"Zero Emission" },
-    { id:7, name:"Toyota Fortuner Legender", category:"suv", year:2023, engine:"2.8L Turbo Diesel", mileage:"4,500 mi", price:42300, rating:4.4, img:"https://images.unsplash.com/photo-1551830820-330a71b99659?auto=format&fit=crop&w=800&q=80", badge:"" },
-    { id:8, name:"Mercedes-Benz G-Wagon", category:"suv", year:2024, engine:"4.0L Biturbo V8", mileage:"6 mi", price:165900, rating:4.9, img:"https://images.unsplash.com/photo-1614200179396-2bdb77ebf81b?auto=format&fit=crop&w=800&q=80", badge:"Icon" },
-    { id:9, name:"BMW X5 M Competition", category:"suv", year:2024, engine:"4.4L V8 TwinPower", mileage:"10 mi", price:108700, rating:4.8, img:"https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&w=800&q=80", badge:"" },
+    { id:7, name:"Toyota Fortuner Legender", category:"suv", year:2023, engine:"2.8L Turbo Diesel", mileage:"4,500 mi", price:42300, rating:4.4, img:"Screenshot 2026-06-28 161728.png", badge:"" },
+    { id:8, name:"Mercedes-Benz G-Wagon", category:"suv", year:2024, engine:"4.0L Biturbo V8", mileage:"6 mi", price:165900, rating:4.9, img:"Screenshot 2026-06-28 162021.png", badge:"Icon" },
+    { id:9, name:"BMW X5 M Competition", category:"suv", year:2024, engine:"4.4L V8 TwinPower", mileage:"10 mi", price:108700, rating:4.8, img:"Screenshot 2026-06-28 162216.png/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&w=800&q=80", badge:"" },
     { id:10, name:"Audi Q7 Quattro", category:"suv", year:2023, engine:"3.0L TFSI V6", mileage:"3,100 mi", price:69400, rating:4.5, img:"https://images.unsplash.com/photo-1494976388531-d1058494cdd8?auto=format&fit=crop&w=800&q=80", badge:"" },
     { id:11, name:"Lamborghini Huracán", category:"sports", year:2024, engine:"5.2L V10", mileage:"2 mi", price:248900, rating:5.0, img:"https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=800&q=80", badge:"Supercar" },
     { id:12, name:"Ferrari Roma", category:"sports", year:2024, engine:"3.9L Twin-Turbo V8", mileage:"5 mi", price:262500, rating:5.0, img:"https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=800&q=80", badge:"Limited" },
@@ -49,7 +49,6 @@ document.addEventListener('DOMContentLoaded', () => {
     { img:"https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=900&q=80", caption:"Supercar arrivals" },
     { img:"https://images.unsplash.com/photo-1485291571150-772bcfc10da5?auto=format&fit=crop&w=900&q=80", caption:"Hand-stitched leather detail" },
     { img:"https://images.unsplash.com/photo-1494976388531-d1058494cdd8?auto=format&fit=crop&w=900&q=80", caption:"Executive SUV lineup" },
-    { img:"https://images.unsplash.com/photo-1567343483496-d04b73a86fa9?auto=format&fit=crop&w=900&q=80", caption:"Precision engineering" },
     { img:"https://images.unsplash.com/photo-1542282088-fe8426682b8f?auto=format&fit=crop&w=900&q=80", caption:"Sedan elegance" },
   ];
 
