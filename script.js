@@ -20,14 +20,14 @@ document.addEventListener('DOMContentLoaded', () => {
     { id:10, name:"Audi Q7 Quattro", category:"suv", year:2023, engine:"3.0L TFSI V6", mileage:"3,100 mi", price:69400, rating:4.5, img:"Screenshot 2026-06-28 163733.png", badge:"" },
     { id:11, name:"Lamborghini Huracán", category:"sports", year:2024, engine:"5.2L V10", mileage:"2 mi", price:248900, rating:5.0, img:"Screenshot 2026-06-28 163928.png", badge:"Supercar" },
     { id:12, name:"Ferrari Roma", category:"sports", year:2024, engine:"3.9L Twin-Turbo V8", mileage:"5 mi", price:262500, rating:5.0, img:"Screenshot 2026-06-28 164119.png", badge:"Limited" },
-    { id:13, name:"Tesla Model 3 Performance", category:"electric", year:2024, engine:"Dual Motor Electric", mileage:"20 mi", price:53900, rating:4.6, img:"https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=800&q=80", badge:"" },
-    { id:14, name:"Mercedes-Benz EQS", category:"electric", year:2024, engine:"Single Motor Electric", mileage:"9 mi", price:104900, rating:4.7, img:"https://images.unsplash.com/photo-1593941707882-a5bba14938c7?auto=format&fit=crop&w=800&q=80", badge:"Electric Luxury" },
-    { id:15, name:"BMW 3 Series Sedan", category:"sedan", year:2023, engine:"2.0L Turbo I4", mileage:"6,800 mi", price:44800, rating:4.4, img:"https://images.unsplash.com/photo-1542282088-fe8426682b8f?auto=format&fit=crop&w=800&q=80", badge:"" },
-    { id:16, name:"Audi A4 Premium Plus", category:"sedan", year:2023, engine:"2.0L TFSI", mileage:"5,400 mi", price:41200, rating:4.3, img:"https://images.unsplash.com/photo-1592198084033-aade902d1aae?auto=format&fit=crop&w=800&q=80", badge:"" },
-    { id:17, name:"Mercedes-Benz E-Class", category:"sedan", year:2024, engine:"3.0L Turbo I6", mileage:"1,800 mi", price:67300, rating:4.7, img:"https://images.unsplash.com/photo-1571607388263-1044f9ea01dd?auto=format&fit=crop&w=800&q=80", badge:"" },
-    { id:18, name:"Certified Pre-Owned BMW 7 Series", category:"used", year:2021, engine:"3.0L Turbo I6", mileage:"28,400 mi", price:48900, rating:4.3, img:"https://images.unsplash.com/photo-1583267746897-2cf415887172?auto=format&fit=crop&w=800&q=80", badge:"Certified Used" },
-    { id:19, name:"Certified Pre-Owned Audi A8", category:"used", year:2020, engine:"3.0L TFSI V6", mileage:"31,200 mi", price:39900, rating:4.1, img:"https://images.unsplash.com/photo-1525609004556-c46c7d6cf023?auto=format&fit=crop&w=800&q=80", badge:"Premium Used" },
-    { id:20, name:"Certified Pre-Owned Range Rover Sport", category:"used", year:2021, engine:"3.0L Supercharged V6", mileage:"24,600 mi", price:52400, rating:4.2, img:"https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?auto=format&fit=crop&w=800&q=80", badge:"Premium Used" },
+    { id:13, name:"Tesla Model 3 Performance", category:"electric", year:2024, engine:"Dual Motor Electric", mileage:"20 mi", price:53900, rating:4.6, img:"Screenshot 2026-06-28 164447.png", badge:"" },
+    { id:14, name:"Mercedes-Benz EQS", category:"electric", year:2024, engine:"Single Motor Electric", mileage:"9 mi", price:104900, rating:4.7, img:"Screenshot 2026-06-28 164609.png", badge:"Electric Luxury" },
+    { id:15, name:"BMW 3 Series Sedan", category:"sedan", year:2023, engine:"2.0L Turbo I4", mileage:"6,800 mi", price:44800, rating:4.4, img:"Screenshot 2026-06-28 164718.png", badge:"" },
+    { id:16, name:"Audi A4 Premium Plus", category:"sedan", year:2023, engine:"2.0L TFSI", mileage:"5,400 mi", price:41200, rating:4.3, img:"c:\Users\Admin\OneDrive\Pictures\Screenshots\Screenshot 2026-06-28 164931.png", badge:"" },
+    { id:17, name:"Mercedes-Benz E-Class", category:"sedan", year:2024, engine:"3.0L Turbo I6", mileage:"1,800 mi", price:67300, rating:4.7, img:"Screenshot 2026-06-28 165057.png", badge:"" },
+    { id:18, name:"Certified Pre-Owned BMW 7 Series", category:"used", year:2021, engine:"3.0L Turbo I6", mileage:"28,400 mi", price:48900, rating:4.3, img:"Screenshot 2026-06-28 165234.png", badge:"Certified Used" },
+    { id:19, name:"Certified Pre-Owned Audi A8", category:"used", year:2020, engine:"3.0L TFSI V6", mileage:"31,200 mi", price:39900, rating:4.1, img:"Screenshot 2026-06-28 165337.png", badge:"Premium Used" },
+    { id:20, name:"Certified Pre-Owned Range Rover Sport", category:"used", year:2021, engine:"3.0L Supercharged V6", mileage:"24,600 mi", price:52400, rating:4.2, img:"Screenshot 2026-06-28 165457.png", badge:"Premium Used" },
   ];
 
   /* =================== DATA: DEALS (subset) =================== */
