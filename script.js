@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
   /* =================== DATA: CARS =================== */
   const CARS = [
     { id:1, name:"BMW 5 Series", category:"luxury", year:2024, engine:"3.0L Turbo I6", mileage:"5 mi", price:64900, rating:4.8, img:"Screenshot 2026-06-28 154208.png", badge:"New Arrival" },
-    { id:2, name:"Mercedes-Benz C-Class", category:"luxury", year:2024, engine:"2.0L Turbo", mileage:"12 mi", price:58900, rating:4.7, img:"Screenshot 2026-06-28 155650.png", badge:"Featured" },
+    { id:2, name:"Mercedes-Benz C-Class", category:"luxury", year:2024, engine:"2.0L Turbo", mileage:"12 mi", price:58900, rating:4.7, img:"https://www.topgear.com/sites/default/files/2021/11/Mercedes_C300D_0000.jpg", badge:"Featured" },
     { id:3, name:"Audi A6", category:"luxury", year:2023, engine:"2.0L TFSI", mileage:"1,200 mi", price:55200, rating:4.6, img:"https://images.unsplash.com/photo-1542362567-b07e54358753?auto=format&fit=crop&w=800&q=80", badge:"" },
     { id:4, name:"Porsche 911 Carrera", category:"sports", year:2024, engine:"3.0L Twin-Turbo", mileage:"3 mi", price:118900, rating:5.0, img:"https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=80", badge:"Track Ready" },
     { id:5, name:"Range Rover Autobiography", category:"suv", year:2024, engine:"4.4L V8", mileage:"8 mi", price:121500, rating:4.9, img:"https://images.unsplash.com/photo-1581540222194-0def2dda95b8?auto=format&fit=crop&w=800&q=80", badge:"Luxury SUV" },
