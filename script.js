@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
     { id:13, name:"Tesla Model 3 Performance", category:"electric", year:2024, engine:"Dual Motor Electric", mileage:"20 mi", price:53900, rating:4.6, img:"Screenshot 2026-06-28 164447.png", badge:"" },
     { id:14, name:"Mercedes-Benz EQS", category:"electric", year:2024, engine:"Single Motor Electric", mileage:"9 mi", price:104900, rating:4.7, img:"Screenshot 2026-06-28 164609.png", badge:"Electric Luxury" },
     { id:15, name:"BMW 3 Series Sedan", category:"sedan", year:2023, engine:"2.0L Turbo I4", mileage:"6,800 mi", price:44800, rating:4.4, img:"Screenshot 2026-06-28 164718.png", badge:"" },
-    { id:16, name:"Audi A4 Premium Plus", category:"sedan", year:2023, engine:"2.0L TFSI", mileage:"5,400 mi", price:41200, rating:4.3, img:"c:\Users\Admin\OneDrive\Pictures\Screenshots\Screenshot 2026-06-28 164931.png", badge:"" },
+    { id:16, name:"Audi A4 Premium Plus", category:"sedan", year:2023, engine:"2.0L TFSI", mileage:"5,400 mi", price:41200, rating:4.3, img:"Screenshot 2026-06-28 164931.png", badge:"" },
     { id:17, name:"Mercedes-Benz E-Class", category:"sedan", year:2024, engine:"3.0L Turbo I6", mileage:"1,800 mi", price:67300, rating:4.7, img:"Screenshot 2026-06-28 165057.png", badge:"" },
     { id:18, name:"Certified Pre-Owned BMW 7 Series", category:"used", year:2021, engine:"3.0L Turbo I6", mileage:"28,400 mi", price:48900, rating:4.3, img:"Screenshot 2026-06-28 165234.png", badge:"Certified Used" },
     { id:19, name:"Certified Pre-Owned Audi A8", category:"used", year:2020, engine:"3.0L TFSI V6", mileage:"31,200 mi", price:39900, rating:4.1, img:"Screenshot 2026-06-28 165337.png", badge:"Premium Used" },
